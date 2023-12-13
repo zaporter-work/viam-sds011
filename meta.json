@@ -1,0 +1,17 @@
+{
+  "module_id": "zack:sds011",
+  "visibility": "public",
+  "url": "https://github.com/zaporter-work/viam-sds011",
+  "description": "Module for SDS011 over USB",
+  "models": [
+    {
+      "api": "rdk:component:sensor",
+      "model": "zack:sds011:v1"
+    },
+    {
+      "api": "rdk:component:sensor",
+      "model": "zack:sds011:v1-fake"
+    }
+  ],
+  "entrypoint": "./bin/module"
+}
