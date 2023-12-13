@@ -4,7 +4,7 @@
   <br>
   <a href="https://github.com/zaporter-work/viam-sds011"><img src="https://raw.githubusercontent.com/zaporter-work/viam-sds011/main/etc/sds011.jpg" alt="SDS011 image" width="200"></a>
   <br>
-  SDS011 module for Viam
+  SDS011 Air quality sensor module for Viam
   <br>
 </h1>
 
