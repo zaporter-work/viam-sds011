@@ -17,7 +17,7 @@
 zack:sds011:v1
 zack:sds011:v1-fake
 ```
-# Config
+# Example Config
 ```json
 {
   "usb_interface": "/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0"
