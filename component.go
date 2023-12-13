@@ -13,8 +13,8 @@ import (
 )
 
 var (
-	Model     = resource.NewModel("zack", "sds011", "v1")
-	ModelFake = resource.NewModel("zack", "sds011", "v1-fake")
+	Model     = resource.NewModel("zaporter", "sds011", "v1")
+	ModelFake = resource.NewModel("zaporter", "sds011", "v1-fake")
 )
 
 func init() {

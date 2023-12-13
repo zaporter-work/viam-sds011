@@ -14,8 +14,8 @@
 
 # Models
 ```
-zack:sds011:v1
-zack:sds011:v1-fake
+zaporter:sds011:v1
+zaporter:sds011:v1-fake
 ```
 # Example Config
 ```json
