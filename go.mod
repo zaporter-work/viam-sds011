@@ -1,4 +1,4 @@
-module github.com/zaporter-work/viam-sds011
+module github.com/zaporter/viam-sds011
 
 go 1.20
 

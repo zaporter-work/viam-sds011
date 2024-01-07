@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 
-	mymodule "github.com/zaporter-work/viam-sds011"
+	mymodule "github.com/zaporter/viam-sds011"
 	"go.viam.com/utils"
 
 	"go.viam.com/rdk/components/sensor"
