@@ -17,7 +17,7 @@ var (
 )
 
 func main() {
-	utils.ContextualMain(mainWithArgs, module.NewLoggerFromArgs("animalSoundSpammer"))
+	utils.ContextualMain(mainWithArgs, module.NewLoggerFromArgs("sds011"))
 }
 
 func mainWithArgs(ctx context.Context, args []string, logger logging.Logger) error {
