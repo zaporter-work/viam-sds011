@@ -13,5 +13,10 @@
       "model": "zaporter:sds011:v1-fake"
     }
   ],
-  "entrypoint": "./bin/module"
+  "entrypoint": "./bin/module",
+  "build": {
+    "build": "make build",
+    "path": "bin",
+    "arch": ["linux/amd64", "linux/arm64"]
+  }
 }
