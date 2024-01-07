@@ -15,8 +15,8 @@
   ],
   "entrypoint": "./bin/module",
   "build": {
-    "build": "make build",
-    "path": "bin",
+    "build": "make package",
+    "path": "module.tar.gz",
     "arch": ["linux/amd64", "linux/arm64"]
   }
 }
