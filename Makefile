@@ -36,7 +36,7 @@ build:
 
 .PHONY: package
 package: build
-	mkdir -p package && tar -czf module.tar.gz ./bin/module
+	mkdir -p build && tar -czf build/module.tar.gz ./bin/module
 
 .PHONY: clean
 clean: 
