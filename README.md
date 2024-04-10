@@ -8,22 +8,77 @@
   <br>
 </h1>
 
-# Features
-- hot reloading
-- basic functionality
+This module implements the [`rdk:component:sensor` API](https://docs.viam.com/components/sensor) and provides two sensor models:
 
-# Models
 ```
 zaporter:sds011:v1
 zaporter:sds011:v1-fake
 ```
-# Example Config
+
+The `zaporter:sds011:v1` model supports the SDS011 Nova PM air quality sensor.
+The `zaporter:sds011:v1-fake` can be used for testing the module without hardware.
+
+[!NOTE]
+> For more information, see [Modular Resources](https://docs.viam.com/registry/#modular-resources).
+
+## Features
+
+- Hot reloading
+- Basic functionality
+
+## Configure your SDS011 sensor
+
+> [!NOTE]
+> Before configuring your sensor, you must [create a machine](https://docs.viam.com/manage/fleet/machines/#add-a-new-machine).
+
+Navigate to the **Config** tab of your machine's page in [the Viam app](https://app.viam.com/).
+Click on the **Components** subtab and click **Create component**.
+Select the `sensor` type, then select the `sds011:v1` model.
+Click **Add module**, then enter a name for your sensor and click **Create**.
+
+On the new component panel, copy and paste the following attribute template into your sensor’s **Attributes** box:
+
+{
+  "usb_interface": "<PATH TO USB PORT WHERE YOUR SENSOR IS PLUGGED IN>"
+}
+
+### Attributes
+
+The following attributes are available for `zaporter:sds011:v1` sensors:
+
+| Name    | Type   | Inclusion    | Description |
+| ------- | ------ | ------------ | ----------- |
+| `usb_interface` | string | **Required** | Path to the USB port where your sensor is plugged in; see instructions below. |
+
+To find the correct path, SSH to your board and run the following command:
+
+```sh{class="command-line" data-prompt="$"}
+ls /dev/serial/by-id
+```
+
+This should output a list of one or more USB devices attached to your board, for example `usb-1a86_USB_Serial-if00-port0`.
+If the air quality sensor is the only device plugged into your board, you can be confident that the only device listed is the correct one.
+If you have multiple devices plugged into different USB ports, you may need to do some trial and error or unplug something to figure out which path to use.
+
+The `v1-fake` model also requires you to assign a value to the `usb_interface` attribute, but you can set it as any string since the fake model doesn't actually communicate with any real hardware.
+
+> [!NOTE]
+> For more information, see [Configure a Machine](https://docs.viam.com/build/configure/).
+
+### Example configuration
+
+Example attribute configuration:
+
 ```json
 {
   "usb_interface": "/dev/serial/by-id/usb-1a86_USB_Serial-if00-port0"
 }
 ```
-# Output
+
+### Output
+
+The sensor returns the following output:
+
 ```json5
 {
   "pm_10": float64, 
@@ -32,8 +87,4 @@ zaporter:sds011:v1-fake
 }
 ```
 
-# Building
-`make build` -> `bin/module`
-
-# Linting
-`make lint`
+You can view sensor readings on [your machine's CONTROL tab in the Viam app](https://app.viam.com/) or by using the [sensor API](https://docs.viam.com/components/sensor).
