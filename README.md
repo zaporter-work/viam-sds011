@@ -18,7 +18,7 @@ zaporter:sds011:v1-fake
 The `zaporter:sds011:v1` model supports the SDS011 Nova PM air quality sensor.
 The `zaporter:sds011:v1-fake` model can be used for testing the module without hardware.
 
-[!NOTE]
+> [!NOTE]
 > For more information, see [Modular Resources](https://docs.viam.com/registry/#modular-resources).
 
 ## Features
@@ -38,9 +38,11 @@ Click **Add module**, then enter a name for your sensor and click **Create**.
 
 On the new component panel, copy and paste the following attribute template into your sensor’s **Attributes** box:
 
+```json
 {
   "usb_interface": "<PATH TO USB PORT WHERE YOUR SENSOR IS PLUGGED IN>"
 }
+```
 
 ### Attributes
 
