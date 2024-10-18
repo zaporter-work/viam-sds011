@@ -21,15 +21,7 @@ The `zaporter:sds011:v1-fake` model can be used for testing the module without h
 > [!NOTE]
 > For more information, see [Modular Resources](https://docs.viam.com/registry/#modular-resources).
 
-## Features
-
-- Hot reloading
-- Basic functionality
-
 ## Configure your SDS011 sensor
-
-> [!NOTE]
-> Before configuring your sensor, you must [create a machine](https://docs.viam.com/manage/fleet/machines/#add-a-new-machine).
 
 Navigate to the **Config** tab of your machine's page in [the Viam app](https://app.viam.com/).
 Click on the **Components** subtab and click **Create component**.
@@ -64,8 +56,6 @@ If you have multiple devices plugged into different USB ports, you may need to d
 
 The `v1-fake` model also requires you to assign a value to the `usb_interface` attribute, but you can set it as any string since the fake model doesn't actually communicate with any real hardware.
 
-> [!NOTE]
-> For more information, see [Configure a Machine](https://docs.viam.com/build/configure/).
 
 ### Example configuration
 
@@ -84,9 +74,13 @@ The sensor returns the following output:
 ```json5
 {
   "pm_10": float64, 
-  "pm_2.5": float64,
+  "pm_2_5": float64,
   "units": "μg/m³"
 }
 ```
+
+(for backwards compatability, this also returns `pm_2.5` but due to complexities with parsing that key, I renamed the key `pm_2_5`)
+
+***I will likely remove the pm_2.5 key in the future. Do not use it. Use pm_2_5***
 
 You can view sensor readings on [your machine's **Control** tab in the Viam app](https://app.viam.com/) or by using the [sensor API](https://docs.viam.com/components/sensor).
