@@ -90,9 +90,8 @@ func createComponent(_ context.Context,
 func (c *component) Readings(ctx context.Context, extra map[string]interface{}) (map[string]interface{}, error) {
 	if c.isFake {
 		return map[string]interface{}{
-			"pm_10":  10.0,
-			"pm_2.5": 15.0,
-			"units":  "μg/m³",
+			"pm_10": 10.0,
+			"units": "μg/m³",
 		}, nil
 	}
 	reading, err := c.sds011Sensor.Query()
@@ -109,6 +108,7 @@ func (c *component) Readings(ctx context.Context, extra map[string]interface{}) 
 	return map[string]interface{}{
 		"pm_10":  reading.PM10,
 		"pm_2.5": reading.PM25,
+		"pm_2_5": reading.PM25,
 		"units":  "μg/m³",
 	}, nil
 }

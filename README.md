@@ -81,6 +81,6 @@ The sensor returns the following output:
 
 (for backwards compatability, this also returns `pm_2.5` but due to complexities with parsing that key, I renamed the key `pm_2_5`)
 
-***I will likely remove the pm_2.5 key in the future. Do not use it. Use pm_2_5***
+***I will likely remove the pm_2.5 key in the future. Do not use it. Use pm_2_5. The fake sensor no longer has it.***
 
 You can view sensor readings on [your machine's **Control** tab in the Viam app](https://app.viam.com/) or by using the [sensor API](https://docs.viam.com/components/sensor).
