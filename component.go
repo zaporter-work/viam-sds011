@@ -3,6 +3,7 @@ package sds011
 
 import (
 	"context"
+	"fmt"
 
 	"github.com/pkg/errors"
 	"github.com/ryszard/sds011/go/sds011"
@@ -87,7 +88,25 @@ func createComponent(_ context.Context,
 	return instance, nil
 }
 
-func (c *component) Readings(ctx context.Context, extra map[string]interface{}) (map[string]interface{}, error) {
+func (c *component) Readings(ctx context.Context, extra map[string]interface{}) (valret map[string]interface{}, errret error) {
+    defer func(){
+        if r := recover(); r != nil {
+            /*
+12/2/2024, 10:40:44 AM error rdk.modmanager.zaporter_sds011.StdErr pexec/managed_process.go:277 \_ github.com/ryszard/sds011/go/sds011.(*Sensor).Get(0x4000a374c0?)
+
+12/2/2024, 10:40:44 AM error rdk.modmanager.zaporter_sds011.StdErr pexec/managed_process.go:277 \_ /home/zack/go/pkg/mod/github.com/ryszard/sds011@v0.0.0-20170226135337-5d7058e01434/go/sds011/sds011.go:72 +0x80
+
+12/2/2024, 10:40:44 AM error rdk.modmanager.zaporter_sds011.StdErr pexec/managed_process.go:277 \_ github.com/ryszard/sds011/go/sds011.(*response).PM25(0x4000a374c0?)
+
+12/2/2024, 10:40:44 AM error rdk.modmanager.zaporter_sds011.StdErr pexec/managed_process.go:277 \_ goroutine 35040 [running]:
+
+12/2/2024, 10:40:44 AM error rdk.modmanager.zaporter_sds011.StdErr pexec/managed_process.go:277 \_
+
+12/2/2024, 10:40:44 AM error rdk.modmanager.zaporter_sds011.StdErr pexec/managed_process.go:277 \_ panic: access to field that doesn't work with this type of response &sds011.response{Header:0xaa, Command:0xc5, Data:[6]uint8{0x2, 0x1, 0x1, 0x0, 0x77, 0x95}, CheckSum:0x10, Tail:0xab} 
+            */
+            errret= errors.New(fmt.Sprintf("Panic when calling Readings() %+v", r))
+        }
+    }()
 	if c.isFake {
 		return map[string]interface{}{
 			"pm_10": 10.0,
