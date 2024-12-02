@@ -21,6 +21,8 @@ The `zaporter:sds011:v1-fake` model can be used for testing the module without h
 > [!NOTE]
 > For more information, see [Modular Resources](https://docs.viam.com/registry/#modular-resources).
 
+**I recommend setting your pin version to the 0.2.\* minor version instead of pinning to a patch. I regularly find bugs and release backwards-compatible fixes.**
+
 ## Configure your SDS011 sensor
 
 Navigate to the **Config** tab of your machine's page in [the Viam app](https://app.viam.com/).
